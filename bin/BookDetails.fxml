@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.BookDetailsController" spacing="10"
+	alignment="CENTER">
+	<ImageView fx:id="coverImageView" fitWidth="150" fitHeight="200" preserveRatio="true" />
+	<Label fx:id="titleLabel" />
+	<Label fx:id="authorLabel" />
+	<Label fx:id="isbnLabel" />
+	<Label fx:id="editorialLabel" />
+	<Label fx:id="yearPublicationLabel" />
+	<Label fx:id="coverLabel" />
+</VBox>
