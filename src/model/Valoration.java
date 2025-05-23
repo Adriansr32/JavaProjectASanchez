@@ -5,15 +5,21 @@ public class Valoration {
 	private int userId;
 	private int bookId;
 	private int score;
+	private String username;
 	private String comments;
 
-	public Valoration(int valorationId, int userId, int bookId, int score, String comments) {
+	public Valoration(int valorationId, int userId, int bookId, int score, String comments, String username) {
 		this.valorationId = valorationId;
 		this.userId = userId;
 		this.bookId = bookId;
 		this.score = score;
 		this.comments = comments;
+		this.username = username;
 	}
+	
+    public String getUsername() {
+        return username;
+    }	
 
 	public int getValorationId() {
 		return valorationId;

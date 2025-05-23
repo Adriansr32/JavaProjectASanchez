@@ -150,9 +150,34 @@ public class DBUtils {
             }
         }
     }
+    public static boolean isBookOnLoan(int bookId) {
+        String sql = "SELECT COUNT(*) FROM BookLoan bl JOIN Loan l ON bl.loan_id = l.loan_id WHERE bl.book_id = ? AND l.status = 'active'";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             
+            stmt.setInt(1, bookId);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 
     public static List<Valoration> getValorationsForBook(int bookId) throws SQLException {
-        String sql = "SELECT valoration_id, user_id, score, comments FROM Valoration WHERE book_id = ?";
+        String sql = """
+            SELECT v.valoration_id, v.user_id, u.name, v.score, v.comments
+            FROM Valoration v
+            JOIN Users u ON v.user_id = u.user_id
+            WHERE v.book_id = ?
+        """;
+
         List<Valoration> list = new ArrayList<>();
         try (Connection c = DBConnection.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
@@ -160,13 +185,15 @@ public class DBUtils {
             ps.setInt(1, bookId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    list.add(new Valoration(
+                    Valoration valoration = new Valoration(
                         rs.getInt("valoration_id"),
                         rs.getInt("user_id"),
                         bookId,
                         rs.getInt("score"),
-                        rs.getString("comments")
-                    ));
+                        rs.getString("comments"),
+                        rs.getString("name") 
+                    );
+                    list.add(valoration);
                 }
             }
         }

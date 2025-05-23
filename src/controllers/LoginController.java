@@ -39,6 +39,7 @@ public class LoginController {
             User user = DBUtils.authenticate(email, password);
             if (user != null) {
                 messageLabel.setText("Login exitoso. ¡Bienvenido " + user.getName() + "!");
+                mainController.setLoggedUser(user);
                 mainController.showBookListView();
             } else {
                 messageLabel.setText("Usuario o contraseña incorrectos.");
@@ -48,8 +49,9 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
     @FXML 
     public void goToRegister() {
-    	mainController.showRegisterView();
+        mainController.showRegisterView();
     }
 }
