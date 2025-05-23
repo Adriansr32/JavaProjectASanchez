@@ -4,7 +4,6 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import application.DBConnection;
 import model.*;
 
 public class DBUtils {
@@ -35,17 +34,28 @@ public class DBUtils {
     }
 
     public static boolean registerUser(String name, String email, String password) throws SQLException {
-        String sql = "INSERT INTO Users (name, email, password_hash) VALUES (?, ?, ?)";
+        String checkSql = "SELECT COUNT(*) FROM Users WHERE email = ?";
+        String insertSql = "INSERT INTO Users (name, email, password_hash) VALUES (?, ?, ?)";
         String hash = Encrypt.simpleHash(password);
-        try (Connection c = DBConnection.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql)) {
 
-            ps.setString(1, name);
-            ps.setString(2, email);
-            ps.setString(3, hash);
-            return ps.executeUpdate() == 1;
+        try (Connection c = DBConnection.getConnection();
+             PreparedStatement checkPs = c.prepareStatement(checkSql)) {
+
+            checkPs.setString(1, email);
+            ResultSet rs = checkPs.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                return false;
+            }
+
+            try (PreparedStatement insertPs = c.prepareStatement(insertSql)) {
+                insertPs.setString(1, name);
+                insertPs.setString(2, email);
+                insertPs.setString(3, hash);
+                return insertPs.executeUpdate() == 1;
+            }
         }
     }
+
 
     public static List<Book> getAllBooks() throws SQLException {
         String sql = "SELECT book_id, title, author, isbn, cover, editorial, year_publication FROM Book";
