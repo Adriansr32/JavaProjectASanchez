@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Classe utilitària per gestionar la connexió a la base de dades MySQL.
+ * Proporciona mètodes per obtenir i tancar la connexió a la base de dades.
+ */
 public class DBConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/digital_library";
     private static final String USER = "gestor";
@@ -18,6 +22,12 @@ public class DBConnection {
         }
     }
 
+    /**
+     * Obté una instància de la connexió a la base de dades.
+     * Si la connexió no existeix o està tancada, en crea una de nova.
+     * @return Una connexió a la base de dades.
+     * @throws RuntimeException Si no es pot connectar a la base de dades.
+     */
     public static Connection getConnection() {
         try {
             if (connection == null || connection.isClosed()) {
@@ -30,6 +40,9 @@ public class DBConnection {
         return connection;
     }
 
+    /**
+     * Tanca la connexió a la base de dades si està oberta.
+     */
     public static void closeConnection() {
         if (connection != null) {
             try {

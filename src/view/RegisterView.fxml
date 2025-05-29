@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" prefHeight="331.0" prefWidth="427.0" spacing="15" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/21.0.7" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
-    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="User Register" />
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Registre d'usuari" />
     
-    <TextField fx:id="nameField" prefHeight="26.0" prefWidth="260.0" promptText="Name" translateX="50.0">
+    <TextField fx:id="nameField" prefHeight="26.0" prefWidth="260.0" promptText="Nom" translateX="50.0">
       <VBox.margin>
          <Insets right="100.0" />
       </VBox.margin>
@@ -22,21 +22,21 @@
       <effect>
          <DropShadow />
       </effect></TextField>
-    <TextField fx:id="emailField" promptText="Email" translateX="50.0">
+    <TextField fx:id="emailField" promptText="Correu electrònic" translateX="50.0">
       <VBox.margin>
          <Insets right="100.0" />
       </VBox.margin>
       <effect>
          <DropShadow />
       </effect></TextField>
-    <PasswordField fx:id="passwordField" promptText="Password" translateX="50.0">
+    <PasswordField fx:id="passwordField" promptText="Contrasenya" translateX="50.0">
       <VBox.margin>
          <Insets right="100.0" />
       </VBox.margin>
       <effect>
          <DropShadow />
       </effect></PasswordField>
-    <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" translateX="50.0">
+    <PasswordField fx:id="confirmPasswordField" promptText="Confirma la contrasenya" translateX="50.0">
       <VBox.margin>
          <Insets right="100.0" />
       </VBox.margin>
@@ -44,14 +44,14 @@
          <DropShadow />
       </effect></PasswordField>
     
-    <Button maxWidth="127.0" onAction="#goToLogin" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: white;" text="Login" translateY="41.0" VBox.vgrow="NEVER">
+    <Button maxWidth="127.0" onAction="#goToLogin" prefHeight="19.0" prefWidth="127.0" style="-fx-background-color: white;" text="Inicia sessió" translateY="41.0" VBox.vgrow="NEVER">
       <VBox.margin>
          <Insets right="200.0" />
       </VBox.margin>
       <effect>
          <DropShadow height="42.06" radius="15.265" />
       </effect></Button>
-    <Button maxWidth="142.0" onAction="#handleRegister" prefHeight="19.0" prefWidth="142.0" style="-fx-background-color: white;" text="Registrar" translateX="80.0">
+    <Button maxWidth="142.0" onAction="#handleRegister" prefHeight="19.0" prefWidth="142.0" style="-fx-background-color: white;" text="Registrar-se" translateX="80.0">
       <effect>
          <DropShadow />
       </effect></Button>

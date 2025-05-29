@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.EditBookController" spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+    <TextField fx:id="titleField" promptText="Título"/>
+    <TextField fx:id="authorField" promptText="Autor"/>
+    <TextField fx:id="editorialField" promptText="Editorial"/>
+    <TextField fx:id="yearField" promptText="Año de publicación"/>
+
+    <ImageView fx:id="coverPreview" fitWidth="150" fitHeight="200" preserveRatio="true"/>
+
+    <Button text="Cambiar portada" onAction="#handleChooseCover"/>
+    <Button fx:id="saveButton" text="Guardar cambios" onAction="#handleSave"/>
+    <Button fx:id="deleteButton" text="Eliminar libro" onAction="#handleDelete" style="-fx-background-color: #d9534f; -fx-text-fill: white;"/>
+</VBox>

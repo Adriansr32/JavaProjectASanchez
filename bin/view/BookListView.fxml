@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.layout.FlowPane?>
 
-<FlowPane fx:id="bookContainer"
-          xmlns="http://javafx.com/javafx/21.0.7"
-          xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="controllers.BookListController"
-          hgap="10" vgap="10"
-          prefWrapLength="500"
-          style="-fx-padding: 10;">
+
+<FlowPane fx:id="bookContainer" hgap="10" prefHeight="260.0" prefWidth="656.0" prefWrapLength="500" style="-fx-padding: 10;" vgap="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BookListController">
 </FlowPane>

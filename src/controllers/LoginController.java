@@ -10,8 +10,12 @@ import util.DBUtils;
 
 import java.sql.SQLException;
 
+/**
+ * Controlador de la vista de login. Gestiona l'autenticació d'usuaris.
+ */
 public class LoginController {
 
+    /** Referència al controlador principal. */
     private MainController mainController;
 
     @FXML
@@ -26,10 +30,17 @@ public class LoginController {
     @FXML
     private Label messageLabel;
 
+    /**
+     * Estableix el controlador principal.
+     * @param mainController controlador principal
+     */
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     * Gestiona l'acció de login. Autentica l'usuari i mostra missatges d'error si cal.
+     */
     @FXML
     private void handleLogin() {
         String email = emailField.getText();
@@ -50,6 +61,9 @@ public class LoginController {
         }
     }
 
+    /**
+     * Navega a la vista de registre d'usuari.
+     */
     @FXML 
     public void goToRegister() {
         mainController.showRegisterView();
