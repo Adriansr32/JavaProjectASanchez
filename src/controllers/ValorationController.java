@@ -75,7 +75,7 @@ public class ValorationController {
 	 * Valida la puntuació i el comentari, i si són vàlids, registra la valoració a la base de dades.
 	 */
 	@FXML
-\	private void handleSubmitValoration() {
+	private void handleSubmitValoration() {
 		Integer score = scoreChoiceBox.getValue();
 		String comment = commentsTextArea.getText();
 
